@@ -19,5 +19,4 @@ urlpatterns = [
     path('detailInfo/create/<int:baseInfo_id>/', detailInfo_views.detailInfo_create, name='detailInfo_create'),
     path('detailInfo/modify/<int:detailInfo_id>/', detailInfo_views.detailInfo_modify, name='detailInfo_modify'),
     path('detailInfo/delete/<int:detailInfo_id>/', detailInfo_views.detailInfo_delete, name='detailInfo_delete'),
-    path('detailInfo/vote/<int:detailInfo_id>/', detailInfo_views.detailInfo_vote, name='detailInfo_vote'),
 ]

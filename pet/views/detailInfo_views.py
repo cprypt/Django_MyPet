@@ -55,13 +55,3 @@ def detailInfo_delete(request, detailInfo_id):
     else:
         detailInfo.delete()
     return redirect('pet:detail', baseInfo_id=detailInfo.baseInfo.id)
-
-
-@login_required(login_url='common:login')
-def detailInfo_vote(request, detailInfo_id):
-    detailInfo = get_object_or_404(DetailInfo, pk=detailInfo_id)
-    if request.user == detailInfo.author:
-        messages.error(request, '본인이 등록한 상세 정보는 추천할 수 없습니다')
-    else:
-        detailInfo.voter.add(request.user)
-    return redirect('{}#detailInfo_{}'.format(resolve_url('pet:detail', baseInfo_id=detailInfo.baseInfo.id), detailInfo.id))
